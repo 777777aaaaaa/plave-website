@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAVE粉絲網頁</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f7dc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #f7b267;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #a51c06;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav .menu {
+            position: relative;
+        }
+        nav .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            display: block;
+            border-radius: 10px; /* 設置圓角 */
+        }
+        nav .menu:hover > a {
+            background-color: #f7b267;
+        }
+        nav .menu ul {
+            text-align: center;
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #763c00;
+            border-radius: 10px; /* 圓角處理 */
+            width: 200px;
+        }
+        nav .menu:hover ul {
+            display: block;
+        }
+        nav .menu ul li {
+            border-bottom: 1px solid #f7b267;
+        }
+        nav .menu ul li:last-child {
+            border-bottom: none;
+        }
+        nav .menu ul li a {
+            padding: 10px 15px;
+            color: white;
+            border-radius: 10px; /* 每個下拉選項圓角 */
+        }
+        nav .menu ul li a:hover {
+            background-color: #f7b267;
+        }
+
+        nav .menu_A {
+            position: relative;
+        }
+        nav .menu_A a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            display: block;
+            border-radius: 10px; /* 設置圓角 */
+        }
+        nav .menu_A:hover > a {
+            background-color: #f7b267;
+        }
+        nav .menu_A ul {
+            text-align: center;
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #763c00;
+            border-radius: 10px; /* 圓角處理 */
+            width: 100px;
+        }
+        nav .menu_A:hover ul {
+            display: block;
+        }
+        nav .menu_A ul li {
+            border-bottom: 1px solid #f7b267;
+        }
+        nav .menu_A ul li:last-child {
+            border-bottom: none;
+        }
+        nav .menu_A ul li a {
+            padding: 10px 15px;
+            color: white;
+            border-radius: 10px; /* 每個下拉選項圓角 */
+        }
+        nav .menu_A ul li a:hover {
+            background-color: #f7b267;
+        }
+
+        main {
+            padding: 20px;
+            display: none;
+            flex: 1; /* 確保主內容區域能撐開頁面 */
+        }
+
+        main.active {
+            display: block;
+        }
+
+        footer {
+            background-color: #f7b267;
+            color: white;
+            text-align: center;
+            padding: 1px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .info-box {
+            color: #763c00;
+            display: flex; 
+            align-items: center; 
+            padding: 20px;
+            border-radius: 10px;
+            margin: 0 auto 20px; 
+            width: 50%; 
+            flex-wrap: wrap; 
+        }
+        .info-box img {
+            max-width: 350px; 
+            height: auto;
+            border-radius: 20px; 
+            margin-right: 80px;
+        }
+
+        .info-text{
+            flex: 1;
+        }
+
+        .photo-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 20px; 
+            width: 100%;
+        }
+
+        .photo-container img {
+            width: 18%; 
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+            transition: transform 0.3s ease; 
+        }
+
+        .photo-container img:hover {
+            transform: scale(1.5);
+        }
+
+        
+    </style>
+    <script>
+        function showContent(id) {
+            // 隱藏所有內容
+            document.querySelectorAll('main').forEach(section => section.classList.remove('active'));
+            // 顯示相應內容
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>PLAVE粉絲網頁</h1>
+        <p>探索PLAVE成員、歌曲及更多資訊</p>
+    </header>
+    <nav>
+        <div class="menu_A">
+            <a href="javascript:void(0)">成員介紹</a>
+            <ul>
+                <li><a href="javascript:void(0)" onclick="showContent('leader')">南藝俊</a></li>
+                <li><a href="javascript:void(0)" onclick="showContent('noah')">韓諾亞</a></li>
+                <li><a href="javascript:void(0)" onclick="showContent('jong')">蔡丰玖</a></li>
+                <li><a href="javascript:void(0)" onclick="showContent('eanhoo')">都銀虎</a></li>
+                <li><a href="javascript:void(0)" onclick="showContent('hyunmin')">柳河玟</a></li>
+            </ul>
+        </div>
+        <div class="menu">
+            <a href="javascript:void(0)">單曲專輯</a>
+            <ul>
+                <li><a href="javascript:void(0)" onclick="showContent('why')">왜요 왜요 왜? (Why?)</a></li>
+                <li><a href="javascript:void(0)" onclick="showContent('pllistmas')">Merry PLLIstmas</a></li>
+                <li><a href="javascript:void(0)" onclick="showContent('pump')">Pump Up The Volume!</a></li>
+                <li><a href="javascript:void(0)" onclick="showContent('asterum')">ASTERUM</a></li>
+            </ul>
+        </div>
+        <div class="menu">
+            <a href="javascript:void(0)">熱門歌曲</a>
+            <ul>
+                <li><a href="javascript:void(0)" onclick="showContent('wait')">Wait For You</a></li>
+                <li><a href="javascript:void(0)" onclick="showContent('summer')">The 6th Summer</a></li>
+                <li><a href="javascript:void(0)" onclick="showContent('way4luv')">The Fiery Priest 2</a></li>
+            </ul>
+        </div>
+    </nav>
+    <footer>
+        <p>© 2024 PLAVE粉絲網頁 | 由吳翊涵設計</p>
+    </footer>
+
+    <!--成員介紹-->
+    <main id="leader" class="active">
+        <div class="info-box">
+            <img src="image/藝俊.jpg" alt="南藝俊的圖片">
+            <div class="info-text">
+            <p><h2>隊長:YEJUN 南藝俊</h2>
+                <p>隊內擔當：隊長、主唱 (Vocal)</p>
+                <p>代表顏色：藍色</p>
+                <p>代表動物：海豚</p>
+                <p>特點：成熟穩重，為團體提供領導力</p>
+                <p>背景：PLAVE的隊長，也是第一個進入公司成為練習生的成員。他充滿領袖氣質，展現出穩重和可靠的一面。</p>
+                <p>故事：藝俊曾為了追求夢想經歷過挫折，但依然充滿熱情。他最早主動聯絡好友諾亞，邀請他加入PLAVE，從而開啟了團隊的組建。</p>
+        </div>
+    </main>
+    <main id="noah">
+        <div class="info-box">
+            <img src="image/noah.jpg" alt="韓諾亞的圖片">
+            <div class="info-text">
+            <p><h2>成員:NOAH 韓諾亞</h2>
+                <p>隊內擔當：主唱 (Vocal)</p>
+                <p>代表顏色：紫色</p>
+                <p>代表動物：羊駝</p>
+                <p>特點：溫柔且具有療癒的歌聲</p>
+                <p>背景：團隊的音樂靈魂，擅長作詞和作曲。</p>
+                <p>故事：原本放棄了歌手夢，但在接到藝俊的邀請後重新點燃熱情。他的性格熱情外向，常被粉絲和成員戲稱為「Noslighting大師」，因為他善於用幽默說服別人。</p>
+        </div>
+    </main>
+    <main id="jong">
+        <div class="info-box">
+            <img src="image/斑比.jpg" alt="蔡丰玖的圖片">
+            <div class="info-text">
+            <p><h2>成員:BAMBY 蔡丰玖</h2>
+                <p>隊內擔當：主舞、主唱 (Dance, Vocal)</p>
+                <p>代表顏色：粉色</p>
+                <p>代表動物：鹿</p>
+                <p>特點：擅長跳舞，具有可愛魅力</p>
+                <p>背景：以陽光、幽默著稱的成員，經常擔任團隊的氣氛製造者。</p>
+                <p>故事：斑比最初是銀虎的好友，被銀虎以半開玩笑的方式邀請進入團隊。他的加入讓團隊更加充滿活力和趣味。</p>
+        </div>
+    </main>
+    <main id="eanhoo">
+        <div class="info-box">
+            <img src="image/銀虎.jpg" alt="都銀虎的圖片">
+            <div class="info-text">
+            <p><h2>成員:EUNHO 都銀虎</h2>
+                <p>隊內擔當：說唱、主唱 (Rap, Vocal)</p>
+                <p>代表顏色：紅色</p>
+                <p>代表動物：狼</p>
+                <p>特點：充滿力量與個性</p>
+                <p>背景：負責舞蹈的中心成員，沉穩又散發暖男氣質。</p>
+                <p>故事：銀虎原本忙於工作，但接到藝俊的邀請後毫不猶豫地加入。他的舞蹈表現力和默默付出的性格深受粉絲喜愛。</p>
+        </div>
+    </main>
+    <main id="hyunmin">
+        <div class="info-box">
+            <img src="image/河玟.jpg" alt="柳河玟的圖片">
+            <div class="info-text">
+            <p><h2>成員:HAMIN 柳河玟</h2>
+                <p>隊內擔當：說唱、主舞 (Rap, Dance)</p>
+                <p>代表顏色：黑色</p>
+                <p>代表動物：黑貓</p>
+                <p>特點：神秘冷酷，擁有強烈的舞台魅力</p>
+                <p>背景：PLAVE中最具個性的一位，專注於創意和獨特的表演。</p>
+                <p>故事：起初對加入有所猶豫，但在諾亞的熱情說服下最終決定加入。他的表演風格充滿自我色彩，經常成為團隊的創意核心。</p>
+        </div>
+    </main>
+      
+    <!--單曲專輯-->
+    <main id="why">
+        <div class="info-box">
+            <a href="https://www.youtube.com/watch?v=Q_TzqcWKz00" target="_blank" class="info-box">
+                <img src="image/왜요 왜요 왜Why.jpg" alt="Why歌曲的圖片">
+            </a>
+            <div class="info-text">
+            <p><h2>歌曲：왜요 왜요 왜? (Why?)</h2>
+                <p>發行日期：2023年5月25日</p>
+                <p>風格：融合了電子流行與抒情元素的K-pop曲風。</p>
+                <p>專輯： 單曲專輯</p>
+                <p>《왜요왜요왜?》 (Why?)》是一首表達內心困惑與情感掙扎的歌曲，從歌詞到旋律都傳遞了一種想要尋求答案卻無法釋懷的情感。當出來一個人面對愛情、失落或誤解時，對於自身的困惑與渴望了解的。
+
+                    這個主題不僅限於愛情，也可以延伸到更廣泛的生活場景，例如尋求自我認同或探索內心深處的答案。</p>
+        </div>
+        <div class="photo-container">
+            <img src="image/why-藝俊.jpg" alt="Photo 1">
+            <img src="image/why-諾亞.jpg" alt="Photo 2">
+            <img src="image/why-斑比.jpg" alt="Photo 3">
+            <img src="image/why-銀虎.jpg" alt="Photo 4">
+            <img src="image/why-河玟.jpg" alt="Photo 5">
+        </div>
+    </main>
+
+    <main id="pllistmas">
+        <div class="info-box">
+            <a href="https://www.youtube.com/watch?v=E-1zD8u6lJE" target="_blank" class="info-box">
+                <img src="image/Mwrry PLLIstmas.jpg" alt="Merry PLLIstmas歌曲的圖片">
+            </a>
+            <div class="info-text">
+            <p><h2>歌曲：Mwrry PLLIstmas</h2>
+                <p>發行日期：2023年12月12日</p>
+                <p>專輯：單曲專輯《Merry PLListmas》</p>
+                <p>風格：節慶融合氣氛與流行元素的K-pop曲風，帶有溫馨與歡樂的感覺。</p>
+                <p>《Merry PLLIstmas》是一首充滿溫暖與喜悅的節日歌曲，旨在與聽眾分享特別的節日氛圍。 ）以及各地的真摯感情。
+
+                    這不僅是慶祝聖誕節，更是一封給所有支持者的感謝信。們共同分享一份快樂。
+                    
+                    歌曲也包含了一種對未來的期待，強調了即使一年即將結束，還有許多值得每個人等待的等待事件。</p>
+        </div>
+        <div class="photo-container">
+            <img src="image/PLLI-藝俊.jpg" alt="Photo 1">
+            <img src="image/PLLI-諾亞.jpg" alt="Photo 2">
+            <img src="image/PLLI-斑比.jpg" alt="Photo 3">
+            <img src="image/PLLI-銀虎.jpg" alt="Photo 4">
+            <img src="image/PLLI-河玟.jpg" alt="Photo 5">
+        </div>
+    </main>
+
+    <main id="pump">
+        <div class="info-box">
+            <a href="https://www.youtube.com/watch?v=EYG4ROejmyI" target="_blank" class="info-box">
+                <img src="image/Pump Up The Volume!.jpg" alt="Pump Up The Volume!歌曲的圖片">
+            </a>
+            <div class="info-text">
+            <p><h2>歌曲：Pump Up The Volume!</h2>
+                <p>發行日期：2024年8月20日</p>
+                <p> 專輯：單曲專輯《Pump Up The Volume!》</p>
+                <p> 風格：電子舞曲（EDM）與K-pop相結合，充滿動感與節奏感的歌曲。</p>
+                <p>《Pump Up The Volume!》是一首充滿能量、催促人心的歌曲，旨在鼓勵聽眾釋放壓力、享受當下，並以音樂作為心靈的動力源泉。歌曲中的"Pump Up The Volume"意指將音量調高，並進一步象徵著放開所有束縛、隨著音樂的節奏盡情舞動，讓音樂的力量把一切不快和壓力都消除。這首歌的訊息是要鼓勵人們在困難的日常生活中找到快樂，勇敢地表達自我，無論是透過音樂還是舞蹈。
+
+                    歌詞中充滿了積極向上的語句，傳達著一種突破自我、放手一搏的態度。歌曲的旋律和節奏使人不禁想要跟著舞動，宛如一場在音樂中釋放能量的派對，讓聽眾隨著音樂節拍一同"提升音量"，投入到自由和快樂的世界中。</p>
+        </div>
+        <div class="photo-container">
+            <img src="image/藝俊.jpg" alt="Photo 1">
+            <img src="image/noah.jpg" alt="Photo 2">
+            <img src="image/斑比.jpg" alt="Photo 3">
+            <img src="image/銀虎.jpg" alt="Photo 4">
+            <img src="image/河玟.jpg" alt="Photo 5">
+        </div>
+    </main>
+
+    <main id="asterum">
+        <div class="info-box">
+            <a href="https://www.youtube.com/watch?v=nAsp8_AUCIU" target="_blank" class="info-box">
+                <img src="image/asterum.jpg" alt="ASTERUM歌曲的圖片">
+            </a>
+            <div class="info-text">
+            <p><h2>歌曲：asterum</h2>
+                <p>發行日期：2023年3月12日</p>
+                <p> 專輯：單曲專輯《ASTERUM》</p>
+                <p> 風格：電子流行（EDM）與未來派音樂元素相融合，具有強烈的未來感和科技感。</p>
+                <p>《ASTERUM》這首歌的名稱本身就蘊含著深刻的象徵意義。根據歌詞的詮釋，"ASTERUM"來自於“星星”（Astro）和“宇宙”的概念，代表著無窮的可能性與探索未知的勇氣。歌曲的核心涵義是“探索無垠的宇宙，尋找自我”，它傳達了一種對未知世界的渴望，並且鼓勵人們勇敢地追尋夢想，無論面對多大的挑戰或不確定性。
+
+                    歌詞中，PLAVE成員們表達了對夢想和未來的探索，並強調了每一個人內心深處的力量和潛能。他們借助歌曲的節奏和旋律，展現了對未來的無限期許，並試圖激勵聽眾勇敢地邁出步伐，去發掘自己未來的星辰。
+                    
+                    整體歌曲的氛圍是充滿動力的，帶有一種鼓舞人心的力量，特別適合作為啟發人心的音樂作品。</p>
+        </div>
+        <div class="photo-container">
+            <img src="image/asterum-藝俊.jpg" alt="Photo 1">
+            <img src="image/asterum-諾亞.jpg" alt="Photo 2">
+            <img src="image/asterum-斑比.jpg" alt="Photo 3">
+            <img src="image/asterum-銀虎.jpg" alt="Photo 4">
+            <img src="image/asterum-河玟.jpg" alt="Photo 5">
+        </div>
+    </main>
+
+    <!--熱門歌曲-->
+    <main id="wait">
+        <div class="info-box">
+            <a href="https://www.youtube.com/watch?v=cFm8fTRW_so&list=OLAK5uy_kB0yBXVtgUGx8pnGVFarHKBI28ryykyRM" target="_blank" class="info-box">
+                <img src="image/Wait For You.jpg" alt="Wait For You歌曲的圖片">
+            </a>
+            <div class="info-text">
+                <h2>歌曲：Wait For You</h2>
+                <p>發行日期：2023年3月12日</p>
+                <p> 專輯：單曲專輯《ASTERUM》</p>
+                <p> 風格：情感豐富的抒情歌曲，融合了R&B和流行音樂元素，旋律柔美而深情。</p>
+                <p>《Wait for You》是一首關於愛情等待與堅持的抒情歌曲，歌詞講述了一個人在愛情中為心愛的人耐心等待，無論時間如何流逝，無論挑戰與困難多大，都會堅守對對方的愛和承諾。這首歌表達了一種情感上的無私與堅持，無論對方是否回應，等待本身就是一種對愛的誠摯與忠誠。
+
+                    歌詞中透露出深沉的情感，歌詞的“等待”不僅是一種行動，更是一種情感上的承諾，意味著無論愛情的結果如何，願意在愛的路上陪伴對方。整體情感帶有些許的哀愁與希望，帶領聽眾進入一個充滿感傷卻又溫暖的愛情故事。
+                    
+                    這首歌的核心是「愛的等待」，它不僅表達了戀愛中的渴望，也傳達了愛情中的耐心與期盼，並且展示了愛情中彼此依賴與信任的重要性。</p>
+        </div>
+        <div class="photo-container">
+            <img src="image/Wait For You-藝俊.jpg" alt="Photo 1">
+            <img src="image/Wait For You-諾亞.jpg" alt="Photo 2">
+            <img src="image/Wait For You-斑比.jpg" alt="Photo 3">
+            <img src="image/Wait For You-銀虎.jpg" alt="Photo 4">
+            <img src="image/Wait For You-河玟.jpg" alt="Photo 5">
+        </div>
+    </main>
+
+    <main id="summer">
+        <div class="info-box">
+            <a href="https://www.youtube.com/watch?v=c_yCRwh97M8" target="_blank" class="info-box">
+                <img src="image/The 6th Summer.jpg" alt="The 6th Summer歌曲的圖片">
+            </a>
+            <div class="info-text">
+            <p><h2>歌曲：The 6th Summer</h2>
+                <p>發行日期：2024年7月15日</p>
+                <p>專輯：單曲專輯《The 6th Summer》</p>
+                <p>風格：輕快的夏日流行歌曲，結合了清新的旋律與輕盈的吉他節奏，帶有一些復古的感覺，適合夏季播放。</p>
+                <p>故事：《The 6th Summer》是一首充滿回憶和情感的夏日歌曲，講述了在生活中的第六個夏天，無論時光如何流逝，對某段美好回憶的珍藏與不變的情感。這首歌圍繞著「夏天」這一季節展開，通過歌詞表達了一種青春的懷舊情懷，回憶起那些過去的美好時光，無論是和朋友一起度過的歡笑，還是那段難忘的愛情故事。歌詞中，PLAVE成員們講述了即使時間過去了，某些回憶仍然在心中綻放，夏天的感覺似乎永遠不會消失。
+
+                    這首歌的核心是「不忘的夏天」和「重拾那些無憂無慮的時光」，它表達了人們在回憶中重新尋找生活中最簡單且純粹的快樂。歌曲的旋律清新輕快，讓人感覺像是在陽光下散步，徜徉在那個特殊的時光裡，捕捉每一個珍貴的瞬間。</p>
+        </div>
+        <div class="photo-container">
+            <img src="image/The 6th Summer-藝俊.jpg" alt="Photo 1">
+            <img src="image/The 6th Summer-諾亞.jpg" alt="Photo 2">
+            <img src="image//The 6th Summer-斑比.jpg"alt="Photo 3">
+            <img src="image/The 6th Summer-銀虎.jpg" alt="Photo 4">
+            <img src="image/The 6th Summer-河玟.jpg" alt="Photo 5">
+        </div>
+    </main>
+
+    <main id="way4luv">
+        <div class="info-box">
+            <a href="https://www.youtube.com/watch?v=cNEC8t-sNnY" target="_blank" class="info-box">
+                <img src="image/The Fiery Priest 2.jpg" alt="The Fiery Priest 2歌曲的圖片">
+            </a>
+            <div class="info-text">
+            <p><h2>歌曲：The Fiery Priest 2</h2>
+                <p>發行日期：2024年9月5日</p>
+                <p>專輯：單曲專輯《The Fiery Priest 2》</p>
+                <p>風格：融合搖滾、Hip-hop和電子元素，帶有強烈節奏感與情感表達，展現力量與抗爭精神。</p>
+                <p>《The Fiery Priest 2》是PLAVE延續其音樂創作系列中的一首具有力量感和情感宣洩的作品。歌曲的名稱及其概念直接受到韓國電視劇《The Fiery Priest》的啟發，該劇中的主角是一位憤怒而又正義感十足的神父，這樣的角色設定成為了這首歌的靈感源泉。
+
+                    在這首歌中，PLAVE通過強烈的音樂節奏和激烈的歌詞表達了對不公、不義的反抗精神，並試圖傳達出面對困難和挫折時不屈不撓的勇氣。歌曲的主題圍繞著「正義」與「抗爭」展開，強調即使身處逆境，也應該勇敢站起來，用力量與堅定信念為正義發聲。歌詞中提到的“火焰”象徵著勇氣、激情與反抗，這些元素組合在一起，讓這首歌成為一首動感十足、充滿力量的宣言。
+                    
+                    歌詞中提到的「神父」角色，雖然是以虛構的形象來展開，但同時也反映了現實生活中那些在面對社會不公時挺身而出的普通人，他們的行為可能不被理解，但他們依然選擇不屈服於壓力，勇敢面對一切挑戰。</p>
+        </div>
+    </main>
+</body>
+</html>
